@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WcfJsonFormatter</name>
+    </assembly>
+    <members>
+        <member name="T:WcfJsonFormatter.Exceptions.NullMessageFormatterException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Exceptions.ConfigServiceException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ConfigServiceException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ConfigServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.NullMessageFormatterException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.NullMessageFormatterException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.MessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.IMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.IMessageFormatter.Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.IMessageFormatter.OperationResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.IMessageFormatter.OperationParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.IMessageFormatter.ServiceRegister">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.MessageFormatter.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Reflection.ParameterInfo},System.Type,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <param name="parameters"></param>
+            <param name="returnType"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.MessageFormatter.Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.MessageFormatter.OperationResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.MessageFormatter.OperationParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Formatters.MessageFormatter.ServiceRegister">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.IClientJsonMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.IClientJsonMessageFormatter.EncodeParameters(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.IClientJsonMessageFormatter.DecodeReply(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter.#ctor(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="endpoint"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter.SerializeRequest(System.ServiceModel.Channels.MessageVersion,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="messageVersion"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter.DeserializeReply(System.ServiceModel.Channels.Message,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter.EncodeParameters(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.ClientJsonMessageFormatter.DecodeReply(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Formatters.IDispatchJsonMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.IDispatchJsonMessageFormatter.DecodeParameters(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.IDispatchJsonMessageFormatter.EncodeReply(System.Object[],System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter.#ctor(System.ServiceModel.Description.OperationDescription,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter.DeserializeRequest(System.ServiceModel.Channels.Message,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter.SerializeReply(System.ServiceModel.Channels.MessageVersion,System.Object[],System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="messageVersion"></param>
+            <param name="parameters"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter.DecodeParameters(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Formatters.DispatchJsonMessageFormatter.EncodeReply(System.Object[],System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.ConfigServiceElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ConfigServiceElement.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.SerializerSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.SerializerSettings.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.SerializerSettings.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.SerializerSettings.OnlyPublicConstructor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.SerializerSettings.EnablePolymorphicMembers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.SerializerSettings.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.ServiceTypeCollection`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TElement"></typeparam>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.IsElementName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="elementName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.IsReadOnly">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.Add(`0)">
+            <summary>
+            
+            </summary>
+            <param name="custom"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.BaseAdd(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.CreateNewElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.IndexOf(`0)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.Remove(`0)">
+            <summary>
+            
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.ElementName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.CollectionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeCollection`1.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.ServiceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceType.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceType.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="compareTo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceType.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceType.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceType.Assembly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceType.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.ServiceTypeRegister">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.IServiceRegister">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.IServiceRegister.TryToNormalize(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.IServiceRegister.GetTypeByName(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="isFullname"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WcfJsonFormatter.IServiceRegister.CheckOperationTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.PostDeserialize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.AddAssembly(System.Reflection.Assembly)">
+            <summary>
+            
+            </summary>
+            <param name="assembly"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.RegisterServiceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.RegisterResolverType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.GetAssemblyFrom(WcfJsonFormatter.Configuration.ServiceType)">
+            <summary>
+            
+            </summary>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.RegisterResolver(System.Type,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="serviceType"></param>
+            <param name="binderType"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.TryToNormalize(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.InspectType(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.GetResolvedType(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.LoadType(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.LoadTypes(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.LoadTypes(System.Reflection.Assembly)">
+            <summary>
+            
+            </summary>
+            <param name="assembly"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.GetTypeByName(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="isFullname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.RefreshRegister">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.IsConcreteClass(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ServiceTypeRegister.IsCollection(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.Serializer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.ServiceTypeCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.ResolverTypeCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.CheckOperationTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.SerializerConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ServiceTypeRegister.KnownTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Configuration.ResolverType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ResolverType.PostDeserialize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Configuration.ResolverType.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ResolverType.ServiceType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ResolverType.BinderType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ResolverType.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.Configuration.ResolverType.WasResolved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Exceptions.AssemblyUnresolvedException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.AssemblyUnresolvedException.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="assemblyName"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.AssemblyUnresolvedException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="assemblyName"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.Exceptions.AssemblyUnresolvedException.AssemblyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Exceptions.ResolverTypeException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ResolverTypeException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ResolverTypeException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:WcfJsonFormatter.Exceptions.ServiceOperationException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ServiceOperationException.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="operationName"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.ServiceOperationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="operationName"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.Exceptions.ServiceOperationException.OperationName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Exceptions.TypeUnresolvedException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.TypeUnresolvedException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.TypeUnresolvedException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.TypeUnresolvedException.#ctor(System.String,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="typeUnresolved"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Exceptions.TypeUnresolvedException.#ctor(System.String,System.Type,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="typeUnresolved"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.Exceptions.TypeUnresolvedException.TypeUnresolved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.IOperationInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.IOperationInfo.OrginalType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.IOperationInfo.NormalizedType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.IOperationInfo.Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.IOperationInfo.OperationType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.IWebHttpJsonBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.IWebHttpJsonBehavior.MakeDispatchMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.IWebHttpJsonBehavior.MakeClientMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.OperationInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationInfo.#ctor(System.String,System.Type,WcfJsonFormatter.OperationInfoType,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <param name="originalType"></param>
+            <param name="operationType"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.OperationInfo.OrginalType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.OperationInfo.NormalizedType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.OperationInfo.Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfJsonFormatter.OperationInfo.OperationType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.OperationInfoType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WcfJsonFormatter.OperationInfoType.Parameter">
+            <summary>
+            Indicates if operation info is a parameter of operation service.
+            </summary>
+        </member>
+        <member name="F:WcfJsonFormatter.OperationInfoType.Result">
+            <summary>
+            Indicates if operation info is a result of operation service.
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.OperationParameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationParameter.#ctor(System.String,System.String,System.Type,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="action"></param>
+            <param name="originalType"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.OperationParameter.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.OperationResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationResult.#ctor(System.String,System.Type,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <param name="originalType"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="T:WcfJsonFormatter.BinaryRawBodyWriter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.BinaryRawBodyWriter.#ctor(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.BinaryRawBodyWriter.#ctor(System.Byte[],System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <param name="headerElement"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.BinaryRawBodyWriter.OnWriteBodyContents(System.Xml.XmlDictionaryWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:WcfJsonFormatter.BinaryRawBodyWriter.DefaultRootName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.RawContentMapper">
+            <summary>
+            Specifies the format to which the content type of an incoming message is mapped.
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.RawContentMapper.GetMessageFormatForContentType(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="contentType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.OperationTypeBinder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.ISerializationBinder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.ISerializationBinder.BindToType(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyName"></param>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.ISerializationBinder.BindToName(System.Type,System.String@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="serializedType"></param>
+            <param name="assemblyName"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationTypeBinder.#ctor(WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationTypeBinder.BindToType(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyName"></param>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.OperationTypeBinder.BindToName(System.Type,System.String@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="serializedType"></param>
+            <param name="assemblyName"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="T:WcfJsonFormatter.WebHttpJsonBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            
+            </summary>
+            <param name="knownTypes"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetRequestDispatchFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetReplyDispatchFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetRequestClientFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetReplyClientFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.MakeDispatchMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.MakeClientMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetClientFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetDispatchFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.Validate(System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.ValidateOperation(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetUriTemplate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.GetBodyStyle(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonBehavior.IsGetOperation(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.WebHttpJsonResolverBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonResolverBehavior.#ctor(System.Func{System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,WcfJsonFormatter.Formatters.IDispatchJsonMessageFormatter},System.Func{System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,WcfJsonFormatter.Formatters.IClientJsonMessageFormatter})">
+            <summary>
+            
+            </summary>
+            <param name="dispatchFormatter"></param>
+            <param name="clientFormatter"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonResolverBehavior.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Func{System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,WcfJsonFormatter.Formatters.IDispatchJsonMessageFormatter},System.Func{System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,WcfJsonFormatter.Formatters.IClientJsonMessageFormatter})">
+            <summary>
+            
+            </summary>
+            <param name="knownTypes"></param>
+            <param name="dispatchFormatter"></param>
+            <param name="clientFormatter"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonResolverBehavior.MakeDispatchMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.WebHttpJsonResolverBehavior.MakeClientMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>
+            
+            </summary>
+            <param name="operationDescription"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
