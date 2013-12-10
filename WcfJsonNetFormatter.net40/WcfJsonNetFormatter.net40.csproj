@@ -50,7 +50,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WcfJsonFormatter">
-      <HintPath>..\packages\WcfJsonFormatter.1.1.1.10\lib\net40\WcfJsonFormatter.dll</HintPath>
+      <HintPath>..\packages\WcfJsonFormatter.1.1.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

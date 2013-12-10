@@ -16,7 +16,7 @@ namespace WcfJsonFormatter.Ns
     public class WebHttpJsonNetBehavior
         : WebHttpJsonBehavior
     {
-        private readonly ServiceTypeRegister configRegister;
+        //private readonly ServiceTypeRegister configRegister;
         private readonly JsonSerializer serializer;
 
         /// <summary>
@@ -34,15 +34,15 @@ namespace WcfJsonFormatter.Ns
         public WebHttpJsonNetBehavior(IEnumerable<Type> knownTypes)
         {
             // It must regsiter the service types..
-            this.configRegister = ConfigurationManager.GetSection("serviceTypeRegister") as ServiceTypeRegister
-                            ?? new ServiceTypeRegister();
+            //this.configRegister = ConfigurationManager.GetSection("serviceTypeRegister") as ServiceTypeRegister
+            //                ?? new ServiceTypeRegister();
 
-            if (knownTypes != null && knownTypes.Any())
-                this.configRegister.LoadTypes(knownTypes);
+            //if (knownTypes != null && knownTypes.Any())
+            //    this.configRegister.LoadTypes(knownTypes);
 
-            SerializerSettings serializerInfo = this.configRegister.SerializerConfig;
+            SerializerSettings serializerInfo = this.ConfigRegister.SerializerConfig;
 
-            CustomContractResolver resolver = new CustomContractResolver(true, false, this.configRegister.TryToNormalize)
+            CustomContractResolver resolver = new CustomContractResolver(true, false, this.ConfigRegister.TryToNormalize)
             {
                 DefaultMembersSearchFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
             };
@@ -60,7 +60,7 @@ namespace WcfJsonFormatter.Ns
 
             if (serializerInfo.EnablePolymorphicMembers)
             {
-                serializer.Binder = new OperationTypeBinder(this.configRegister);
+                serializer.Binder = new OperationTypeBinder(this.ConfigRegister);
                 serializer.TypeNameHandling = TypeNameHandling.Objects;
             }
 
@@ -75,7 +75,7 @@ namespace WcfJsonFormatter.Ns
         public override IDispatchJsonMessageFormatter MakeDispatchMessageFormatter(OperationDescription operationDescription,
                                                                                    ServiceEndpoint endpoint)
         {
-            return new DispatchJsonNetMessageFormatter(operationDescription, this.serializer, this.configRegister);
+            return new DispatchJsonNetMessageFormatter(operationDescription, this.serializer, this.ConfigRegister);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace WcfJsonFormatter.Ns
         public override IClientJsonMessageFormatter MakeClientMessageFormatter(OperationDescription operationDescription,
                                                                                ServiceEndpoint endpoint)
         {
-            return new ClientJsonNetMessageFormatter(operationDescription, endpoint, this.serializer, this.configRegister);
+            return new ClientJsonNetMessageFormatter(operationDescription, endpoint, this.serializer, this.ConfigRegister);
         }
 
     }

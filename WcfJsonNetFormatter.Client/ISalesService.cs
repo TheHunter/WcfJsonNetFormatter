@@ -15,15 +15,12 @@ namespace WcfJsonClient.Example
         [OperationContract]
         Agency GetFirstAgency(int pageIndex, int pageSize);
 
-        //[WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest), OperationContract]
         [OperationContract]
         Salesman GetSalesman(long id);
 
-        //[WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest), OperationContract]
         [OperationContract]
         Salesman GetFirstSalesman(int pageIndex, int pageSize);
 
-        //[WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest), OperationContract]
         [OperationContract]
         IEnumerable<Salesman> GetPagedSalesman(int pageIndex, int pageSize);
 
