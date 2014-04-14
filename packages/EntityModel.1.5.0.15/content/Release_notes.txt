@@ -1,6 +1,0 @@
-Release Notes:
-
-It was modified the GetHashCode() method of BaseEntity<TKey>, because It has had a wrong implementation,
-now the default return value (from GetHaschCode()) is zero when the ID property is not set.
-
-It's necessary upgrade old version packages with this one.

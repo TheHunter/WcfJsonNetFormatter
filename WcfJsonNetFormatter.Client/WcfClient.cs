@@ -19,9 +19,8 @@ namespace WcfJsonClient.Example
         static void Main()
         {
             WcfClient client = new WcfClient();
-            //client.Run();
+            client.Run();
             client.RunJsonProxy();
-            //client.RunJsonProxy2();
         }
 
 
@@ -46,7 +45,7 @@ namespace WcfJsonClient.Example
             //Console.WriteLine(cc);
             //Console.WriteLine();
 
-            var cs = client.GetSalesman(1);
+            var cs = client.GetSalesman(1L);
             Console.WriteLine(cs);
             Console.WriteLine();
 
@@ -129,7 +128,7 @@ namespace WcfJsonClient.Example
                     Console.WriteLine();
 
                     TradeContract contract = proxy.GetContract(1);
-                    Console.WriteLine("TradeContract value: {0}", contract);
+                    Console.WriteLine("TradeContract value: {0}", contract.Owner);
                     Console.WriteLine();
 
                     Console.WriteLine("Press <ENTER> to terminate client.");

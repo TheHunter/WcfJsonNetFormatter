@@ -6,7 +6,7 @@ using PersistentLayer.Domain;
 
 namespace WcfJsonClient.Example
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "WcfJsonService.Example")]
     public interface ISalesService
     {
         [OperationContract]

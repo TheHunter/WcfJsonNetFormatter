@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityModel">
-      <HintPath>..\packages\EntityModel.1.5.0.15\lib\net40\EntityModel.dll</HintPath>
+      <HintPath>..\packages\EntityModel.1.5.4.16\lib\net40\EntityModel.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
