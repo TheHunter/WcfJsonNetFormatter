@@ -33,7 +33,8 @@ namespace WcfJsonService.Example
                    .AsSelf();
 
             builder.RegisterType<SalesService>()
-                   .As<ISalesService>();
+                   .As<ISalesService>()
+                   ;
 
             AutofacHostFactory.Container = builder.Build();
 
