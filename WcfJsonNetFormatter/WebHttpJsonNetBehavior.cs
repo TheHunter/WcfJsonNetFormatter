@@ -33,13 +33,7 @@ namespace WcfJsonFormatter.Ns
         /// <param name="knownTypes"></param>
         public WebHttpJsonNetBehavior(IEnumerable<Type> knownTypes)
         {
-            // It must regsiter the service types..
-            //this.configRegister = ConfigurationManager.GetSection("serviceTypeRegister") as ServiceTypeRegister
-            //                ?? new ServiceTypeRegister();
-
-            //if (knownTypes != null && knownTypes.Any())
-            //    this.configRegister.LoadTypes(knownTypes);
-
+            
             SerializerSettings serializerInfo = this.ConfigRegister.SerializerConfig;
 
             CustomContractResolver resolver = new CustomContractResolver(true, false, this.ConfigRegister.TryToNormalize)

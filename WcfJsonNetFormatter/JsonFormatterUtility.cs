@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace WcfJsonFormatter.Ns
@@ -179,6 +180,50 @@ namespace WcfJsonFormatter.Ns
         {
             str = str.Trim();
             return (str.Length % 4 == 0) && Regex.IsMatch(str, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
+        public static JsonSerializerSettings MakeSettings(this JsonSerializer serializer)
+        {
+            if (serializer == null)
+                return null;
+
+            return new JsonSerializerSettings
+            {
+                Binder = serializer.Binder,
+                CheckAdditionalContent = serializer.CheckAdditionalContent,
+                ConstructorHandling = serializer.ConstructorHandling,
+                Context = serializer.Context,
+                ContractResolver = serializer.ContractResolver,
+                Converters = serializer.Converters,
+                Culture = serializer.Culture,
+                DateFormatHandling = serializer.DateFormatHandling,
+                DateFormatString = serializer.DateFormatString,
+                DateParseHandling = serializer.DateParseHandling,
+                DateTimeZoneHandling = serializer.DateTimeZoneHandling,
+                DefaultValueHandling = serializer.DefaultValueHandling,
+                //Error = serializer.Error
+                FloatFormatHandling = serializer.FloatFormatHandling,
+                FloatParseHandling = serializer.FloatParseHandling,
+                Formatting = serializer.Formatting,
+                MaxDepth = serializer.MaxDepth,
+                MissingMemberHandling = serializer.MissingMemberHandling,
+                NullValueHandling = serializer.NullValueHandling,
+                ObjectCreationHandling = serializer.ObjectCreationHandling,
+                PreserveReferencesHandling = serializer.PreserveReferencesHandling,
+                ReferenceLoopHandling = serializer.ReferenceLoopHandling,
+                ReferenceResolver = serializer.ReferenceResolver,
+                StringEscapeHandling = serializer.StringEscapeHandling,
+                TraceWriter = serializer.TraceWriter,
+                TypeNameAssemblyFormat = serializer.TypeNameAssemblyFormat,
+                TypeNameHandling = serializer.TypeNameHandling
+            };
+
+
         }
     }
 }
