@@ -52,7 +52,6 @@ namespace WcfJsonFormatter.Ns
                                 Type type = this.ServiceRegister.GetTypeByName(JsonFormatterUtility.JTokenToDeserialize(property.Value), false)
                                             ?? parameter.NormalizedType;
 
-                                //this.ServiceRegister.TryToNormalize();
                                 // NOTA: se l'oggetto type non fosse nullo, viene sempre richiamato il binder
                                 // in presenza della proprietà $id ??
 
