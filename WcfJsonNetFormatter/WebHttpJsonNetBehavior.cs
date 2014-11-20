@@ -7,6 +7,7 @@ using System.ServiceModel.Description;
 using Newtonsoft.Json;
 using WcfJsonFormatter.Configuration;
 using WcfJsonFormatter.Formatters;
+using System.ServiceModel.Dispatcher;
 
 namespace WcfJsonFormatter.Ns
 {
@@ -16,14 +17,13 @@ namespace WcfJsonFormatter.Ns
     public class WebHttpJsonNetBehavior
         : WebHttpJsonBehavior
     {
-        //private readonly ServiceTypeRegister configRegister;
         private readonly JsonSerializer serializer;
 
         /// <summary>
         /// 
         /// </summary>
         public WebHttpJsonNetBehavior()
-            : this(new List<Type>())
+            : this(new List<Type>(), true)
         {
         }
 
@@ -31,7 +31,9 @@ namespace WcfJsonFormatter.Ns
         /// 
         /// </summary>
         /// <param name="knownTypes"></param>
-        public WebHttpJsonNetBehavior(IEnumerable<Type> knownTypes)
+        /// <param name="enableUriTemplate"></param>
+        public WebHttpJsonNetBehavior(IEnumerable<Type> knownTypes, bool enableUriTemplate = true)
+            : base(knownTypes, enableUriTemplate)
         {
             
             SerializerSettings serializerInfo = this.ConfigRegister.SerializerConfig;
@@ -60,29 +62,34 @@ namespace WcfJsonFormatter.Ns
 
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="operationDescription"></param>
-        /// <param name="endpoint"></param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public override IDispatchJsonMessageFormatter MakeDispatchMessageFormatter(OperationDescription operationDescription,
                                                                                    ServiceEndpoint endpoint)
         {
             return new DispatchJsonNetMessageFormatter(operationDescription, this.serializer, this.ConfigRegister);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="operationDescription"></param>
-        /// <param name="endpoint"></param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public override IClientJsonMessageFormatter MakeClientMessageFormatter(OperationDescription operationDescription,
                                                                                ServiceEndpoint endpoint)
         {
             return new ClientJsonNetMessageFormatter(operationDescription, endpoint, this.serializer, this.ConfigRegister);
         }
 
+        /// <inheritdoc/>
+        protected override QueryStringConverter GetQueryStringConverter(OperationDescription operationDescription)
+        {
+            return new JsonQueryStringConverter(this.serializer, this.ConfigRegister);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public JsonSerializer Serializer
+        {
+            get { return this.serializer; }
+        }
+
+        
     }
 }

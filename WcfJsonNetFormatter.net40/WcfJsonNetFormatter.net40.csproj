@@ -49,8 +49,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WcfJsonFormatter">
-      <HintPath>..\packages\WcfJsonFormatter.1.1.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
+    <Reference Include="WcfJsonFormatter, Version=1.2.2.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WcfJsonFormatter.1.2.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +67,9 @@
     <Compile Include="..\WcfJsonNetFormatter\JsonFormatterUtility.cs">
       <Link>JsonFormatterUtility.cs</Link>
     </Compile>
+    <Compile Include="..\WcfJsonNetFormatter\JsonQueryStringConverter.cs">
+      <Link>JsonQueryStringConverter.cs</Link>
+    </Compile>
     <Compile Include="..\WcfJsonNetFormatter\JsonReaderConverter.cs">
       <Link>JsonReaderConverter.cs</Link>
     </Compile>
@@ -76,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WcfServiceTypeSchema.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
