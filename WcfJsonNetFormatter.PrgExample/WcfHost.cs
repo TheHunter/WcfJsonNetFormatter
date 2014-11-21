@@ -108,14 +108,19 @@ namespace WcfJsonService.Example
 
             WebClient client = null;
             
-            client = new WebClient();
-            client.Headers[HttpRequestHeader.ContentType] = "application/json";
-            Console.WriteLine(client.UploadString(baseAddress + "/InsertData", "{param1:{\"FirstName\":\"John\",\"LastName\":\"Doe\"}}"));
-
-
+            //client = new WebClient();
+            //client.Headers[HttpRequestHeader.ContentType] = "application/json";
+            //Console.WriteLine(client.UploadString(baseAddress + "/InsertData", "{param1:{\"FirstName\":\"John\",\"LastName\":\"Doe\"}}"));
+            
             client = new WebClient();
             Console.WriteLine(client.DownloadString(baseAddress + "/InsertData2?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"},str=\"string test\""));
 
+            Console.WriteLine("new calling...");
+            Console.WriteLine();
+
+            client = new WebClient();
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData3?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"},str=\"string test\""));
+            Console.WriteLine();
 
             Console.Write("Press ENTER to close the host");
             Console.ReadLine();

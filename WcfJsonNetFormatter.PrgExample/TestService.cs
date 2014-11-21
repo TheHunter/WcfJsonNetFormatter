@@ -37,6 +37,10 @@ namespace WcfJsonService.Example
         //[WebGet(BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "?param1={param1}&str={str}")]  //tolgo partial URI... KO
         [WebGet(UriTemplate = "/InsertData2?param1={param1}&str={str}")]
         string saveDataGet2(InputData param1, string str);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/InsertData3?param1={param1}&str={str}")]
+        InputData saveDataGet3(InputData param1, string str);
     }
 
     public class Service : ITest
@@ -60,33 +64,12 @@ namespace WcfJsonService.Example
         {
             return "Via GET: " + param1.FirstName + " " + param1.LastName + " - " + str;
         }
+
+        public InputData saveDataGet3(InputData param1, string str)
+        {
+            return new InputData{FirstName = param1.FirstName + "__", LastName = param1.LastName + "__"};
+        }
     }
 
-    //public class MyQueryStringConverter : QueryStringConverter
-    //{
-    //    public override bool CanConvert(Type type)
-    //    {
-    //        return (type == typeof(InputData)) || base.CanConvert(type);
-    //    }
-    //    public override object ConvertStringToValue(string parameter, Type parameterType)
-    //    {
-    //        if (parameterType == typeof(InputData))
-    //        {
-    //            string[] parts = parameter.Split(',');
-    //            return new InputData { FirstName = parts[0], LastName = parts[1] };
-    //        }
-    //        else
-    //        {
-    //            return base.ConvertStringToValue(parameter, parameterType);
-    //        }
-    //    }
-    //}
-
-    //public class MyWebHttpBehavior : WebHttpBehavior
-    //{
-    //    protected override QueryStringConverter GetQueryStringConverter(OperationDescription operationDescription)
-    //    {
-    //        return new MyQueryStringConverter();
-    //    }
-    //}
+    
 }
