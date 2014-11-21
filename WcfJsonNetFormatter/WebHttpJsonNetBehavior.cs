@@ -78,7 +78,7 @@ namespace WcfJsonFormatter.Ns
         /// <inheritdoc/>
         protected override QueryStringConverter GetQueryStringConverter(OperationDescription operationDescription)
         {
-            return new JsonQueryStringConverter(this.Serializer, this.ConfigRegister);
+            return new QueryStringJsonConverter(this.Serializer, this.ConfigRegister);
         }
 
         /// <summary>

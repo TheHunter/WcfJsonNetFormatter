@@ -10,7 +10,7 @@ namespace WcfJsonFormatter.Ns
     /// <summary>
     /// 
     /// </summary>
-    public class JsonQueryStringConverter
+    public class QueryStringJsonConverter
         : QueryStringConverter
     {
         private JsonSerializer serializer;
@@ -22,7 +22,7 @@ namespace WcfJsonFormatter.Ns
         /// </summary>
         /// <param name="serializer"></param>
         /// <param name="serviceRegister"></param>
-        public JsonQueryStringConverter(JsonSerializer serializer, IServiceRegister serviceRegister)
+        public QueryStringJsonConverter(JsonSerializer serializer, IServiceRegister serviceRegister)
         {
             this.serializer = serializer;
             this.serviceRegister = serviceRegister;
@@ -41,7 +41,7 @@ namespace WcfJsonFormatter.Ns
         {
             object ret = null;
 
-            if (parameterType.Equals(typeof(string)))
+            if (parameterType == typeof(string))
                 return parameter;
 
             if (parameterType.IsPrimitive)

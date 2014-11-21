@@ -67,11 +67,11 @@
     <Compile Include="..\WcfJsonNetFormatter\JsonFormatterUtility.cs">
       <Link>JsonFormatterUtility.cs</Link>
     </Compile>
-    <Compile Include="..\WcfJsonNetFormatter\JsonQueryStringConverter.cs">
-      <Link>JsonQueryStringConverter.cs</Link>
-    </Compile>
     <Compile Include="..\WcfJsonNetFormatter\JsonReaderConverter.cs">
       <Link>JsonReaderConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\WcfJsonNetFormatter\QueryStringJsonConverter.cs">
+      <Link>QueryStringJsonConverter.cs</Link>
     </Compile>
     <Compile Include="..\WcfJsonNetFormatter\WebHttpJsonNetBehavior.cs">
       <Link>WebHttpJsonNetBehavior.cs</Link>
