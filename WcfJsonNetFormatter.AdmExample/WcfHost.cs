@@ -21,6 +21,7 @@ namespace WcfJsonService.Example
             
             host.Initialize();
             host.Run();
+            //host.RunServiceWithWebRequest();
         }
 
         private void Initialize()
@@ -36,8 +37,42 @@ namespace WcfJsonService.Example
                    .As<ISalesService>()
                    ;
 
+            builder.RegisterType<Service>()
+                .As<ITest>()
+                ;
+
             AutofacHostFactory.Container = builder.Build();
 
+        }
+
+        private void RunServiceWithWebRequest()
+        {
+            Console.WriteLine("Run a ServiceHost via administrative configuration...");
+            Console.WriteLine();
+
+            using (ServiceHost serviceHost = new ServiceHost(typeof(Service)))
+            {
+                serviceHost.AddDependencyInjectionBehavior<ITest>(AutofacHostFactory.Container);
+
+                Console.WriteLine("Opening the host");
+                serviceHost.Open();
+
+                try
+                {
+                    AutofacHostFactory.Container.Resolve<ITest>();
+                    Console.WriteLine("The service is ready.");
+                    Console.WriteLine("Press <ENTER> to terminate service.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error on initializing the service host.");
+                    Console.WriteLine(ex.Message);
+                }
+
+                Console.WriteLine();
+                Console.ReadLine();
+                serviceHost.Close();
+            }
         }
 
         private void Run()

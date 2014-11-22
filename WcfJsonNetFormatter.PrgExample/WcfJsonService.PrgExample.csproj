@@ -86,12 +86,10 @@
     <Reference Include="WcfExtensions">
       <HintPath>..\packages\WcfConfigExtensions.1.0.0.0\lib\net40\WcfExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="WcfJsonFormatter, Version=1.2.2.10, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="WcfJsonFormatter">
       <HintPath>..\packages\WcfJsonFormatter.1.2.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
     </Reference>
-    <Reference Include="WcfJsonNetFormatter, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="WcfJsonNetFormatter">
       <HintPath>..\packages\WcfJsonNetFormatter.1.1.0.5\lib\net40\WcfJsonNetFormatter.dll</HintPath>
     </Reference>
   </ItemGroup>

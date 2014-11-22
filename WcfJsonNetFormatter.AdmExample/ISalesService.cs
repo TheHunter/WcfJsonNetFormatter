@@ -49,6 +49,11 @@ namespace WcfJsonService.Example
         //[OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest), OperationContract]
         TradeContract GetContract(int id);
+
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/InsertData3?param1={param1}&str={str}")]
+        InputData saveDataGet3(InputData param1, string str);
     }
 
 }

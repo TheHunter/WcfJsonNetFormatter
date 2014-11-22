@@ -189,5 +189,12 @@ namespace WcfJsonService.Example
             };
             return instance;
         }
+
+        
+        
+        public InputData saveDataGet3(InputData param1, string str)
+        {
+            return new InputData { FirstName = "naming", LastName = "lastnaming" };
+        }
     }
 }
