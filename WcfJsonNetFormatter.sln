@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2ACB43
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonNetFormatter.net40", "WcfJsonNetFormatter.net40\WcfJsonNetFormatter.net40.csproj", "{52258649-9997-4278-82B5-470CF2420B6D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8FB6F078-825C-422A-84E4-BBED6EA8A112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27DC70D0-42F6-44B7-BD02-2F2F834CC713} = {8FB6F078-825C-422A-84E4-BBED6EA8A112}
+		{52258649-9997-4278-82B5-470CF2420B6D} = {8FB6F078-825C-422A-84E4-BBED6EA8A112}
 	EndGlobalSection
 EndGlobal
