@@ -86,8 +86,13 @@
     <Reference Include="WcfExtensions">
       <HintPath>..\packages\WcfConfigExtensions.1.0.0.0\lib\net40\WcfExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="WcfJsonFormatter">
+    <Reference Include="WcfJsonFormatter, Version=1.2.2.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WcfJsonFormatter.1.2.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="WcfJsonNetFormatter, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WcfJsonNetFormatter.1.1.0.5\lib\net40\WcfJsonNetFormatter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -118,12 +123,6 @@
     <None Include="WcfServiceTypeSchema.xsd">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WcfJsonNetFormatter\WcfJsonNetFormatter.csproj">
-      <Project>{27dc70d0-42f6-44b7-bd02-2f2f834cc713}</Project>
-      <Name>WcfJsonNetFormatter</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\PersistentLayer.Domain.dll" />
