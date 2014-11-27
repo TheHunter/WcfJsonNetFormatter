@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WcfJsonNetFormatter</name>
+    </assembly>
+    <members>
+        <member name="T:WcfJsonFormatter.Ns.CustomContractResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.CustomContractResolver.#ctor(System.Boolean,System.Boolean,System.Func{System.Type,System.Type})">
+            <summary>
+            
+            </summary>
+            <param name="shareCache"></param>
+            <param name="includeFields"></param>
+            <param name="normalizer"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.CustomContractResolver.GetPropertyMembers(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.CustomContractResolver.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="memberSerialization"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.ClientJsonNetMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.ClientJsonNetMessageFormatter.#ctor(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint,Newtonsoft.Json.JsonSerializer,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="endpoint"></param>
+            <param name="serializer"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.ClientJsonNetMessageFormatter.EncodeParameters(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.ClientJsonNetMessageFormatter.DecodeReply(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.DispatchJsonNetMessageFormatter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.DispatchJsonNetMessageFormatter.#ctor(System.ServiceModel.Description.OperationDescription,Newtonsoft.Json.JsonSerializer,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="serializer"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.DispatchJsonNetMessageFormatter.DecodeParameters(System.Byte[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.DispatchJsonNetMessageFormatter.EncodeReply(System.Object[],System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="parameters"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.JsonFormatterUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToSerialize(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToSerialize(Newtonsoft.Json.Linq.JProperty)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToSerialize(Newtonsoft.Json.Linq.JArray)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToSerialize(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.NormalizeTypeName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToDeserialize(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.JTokenToDeserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.IsJArrayType(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.EncodeTo64(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="toEncode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.DecodeFrom64(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="encodedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.IsBase64String(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonFormatterUtility.MakeSettings(Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.JsonQueryStringConverter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonQueryStringConverter.#ctor(Newtonsoft.Json.JsonSerializer,WcfJsonFormatter.IServiceRegister)">
+            <summary>
+            
+            </summary>
+            <param name="serializer"></param>
+            <param name="serviceRegister"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonQueryStringConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonQueryStringConverter.ConvertStringToValue(System.String,System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.JsonReaderConverter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonReaderConverter.#ctor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonReaderConverter.CanConvert(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonReaderConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <exception cref="T:Newtonsoft.Json.JsonSerializationException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonReaderConverter.MakeInstance">
+            <summary>
+            
+            </summary>
+            <exception cref="T:Newtonsoft.Json.JsonSerializationException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.JsonReaderConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="P:WcfJsonFormatter.Ns.JsonReaderConverter.CanWrite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="knownTypes"></param>
+            <param name="enableUriTemplate"></param>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.MakeDispatchMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.MakeClientMessageFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.GetQueryStringConverter(System.ServiceModel.Description.OperationDescription)">
+            <inheritdoc/>
+        </member>
+        <member name="P:WcfJsonFormatter.Ns.WebHttpJsonNetBehavior.Serializer">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
