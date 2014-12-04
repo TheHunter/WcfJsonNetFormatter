@@ -43,9 +43,17 @@ namespace WcfJsonFormatter.Ns
         internal static void JTokenToSerialize(JProperty token)
         {
             if (token.Name == "$type")
-                token.Value = NormalizeTypeName(token.Value.ToString());
+            {
+                string nameType = token.Value.ToString().Trim();
+                if (!nameType.Equals(string.Empty))
+                {
+                    token.Value = NormalizeTypeName(token.Value.ToString());
+                }
+            }
             else
+            {
                 JTokenToSerialize(token.Value);
+            }
         }
 
         /// <summary>
@@ -73,6 +81,13 @@ namespace WcfJsonFormatter.Ns
                     JTokenToSerialize(property);
                 }
 
+                var jType = token.Property("$type");
+                if (jType != null)
+                {
+                    var val = jType.Value.ToString().Trim();
+                    if (val.Equals(string.Empty))
+                        jType.Remove();
+                }
             }
         }
 
