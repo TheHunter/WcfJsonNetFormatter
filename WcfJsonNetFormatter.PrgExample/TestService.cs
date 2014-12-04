@@ -38,8 +38,9 @@ namespace WcfJsonService.Example
         [WebGet(UriTemplate = "/InsertData2?param1={param1}&str={str}")]
         string saveDataGet2(InputData param1, string str);
 
-        [OperationContract]
-        [WebGet(UriTemplate = "/InsertData3?param1={param1}&str={str}")]
+        [OperationContract(Name = "InsertData3")]
+        //[WebGet(UriTemplate = "/InsertData3?param1={param1}&str={str}")]
+        [WebGet]
         InputData saveDataGet3(InputData param1, string str);
     }
 

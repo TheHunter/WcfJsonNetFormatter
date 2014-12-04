@@ -17,8 +17,6 @@ namespace WcfJsonFormatter.Ns
     public class WebHttpJsonNetBehavior
         : WebHttpJsonBehavior
     {
-        //private readonly JsonSerializer serializer;
-
         /// <summary>
         /// 
         /// </summary>

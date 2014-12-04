@@ -86,12 +86,6 @@
     <Reference Include="WcfExtensions">
       <HintPath>..\packages\WcfConfigExtensions.1.0.0.0\lib\net40\WcfExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="WcfJsonFormatter">
-      <HintPath>..\packages\WcfJsonFormatter.1.2.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
-    </Reference>
-    <Reference Include="WcfJsonNetFormatter">
-      <HintPath>..\packages\WcfJsonNetFormatter.1.1.0.5\lib\net40\WcfJsonNetFormatter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISalesService.cs" />
@@ -118,12 +112,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="WcfServiceTypeSchema.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\PersistentLayer.Domain.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WcfJsonFormatter\WcfJsonFormatter\WcfJsonFormatter.csproj">
+      <Project>{a488872b-9d9b-46a2-b0be-df14eb3aeb7d}</Project>
+      <Name>WcfJsonFormatter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfJsonNetFormatter\WcfJsonNetFormatter.csproj">
+      <Project>{27dc70d0-42f6-44b7-bd02-2f2f834cc713}</Project>
+      <Name>WcfJsonNetFormatter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
