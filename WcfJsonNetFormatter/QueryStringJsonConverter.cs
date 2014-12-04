@@ -27,36 +27,66 @@ namespace WcfJsonFormatter.Ns
             this.serializer = serializer;
             this.serviceRegister = serviceRegister;
             this.settings = serializer.MakeSettings();
-
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Determines whether the specified type can be converted to and from a string representation.
+        /// </summary>
+        /// <param name="type">The <see cref="T:System.Type" /> to convert.</param>
+        /// <returns>
+        /// A value that specifies whether the type can be converted.
+        /// </returns>
         public override bool CanConvert(Type type)
         {
             return true;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Converts a query string parameter to the specified type.
+        /// </summary>
+        /// <param name="parameter">The string form of the parameter and value.</param>
+        /// <param name="parameterType">The <see cref="T:System.Type" /> to convert the parameter to.</param>
+        /// <returns>
+        /// The converted parameter.
+        /// </returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
         public override object ConvertStringToValue(string parameter, Type parameterType)
         {
-            object ret = null;
+            if (parameter == null)
+                return null;
 
-            if (parameterType == typeof(string))
-                return parameter;
-
-            if (parameterType.IsPrimitive)
-            {
-                ret = Convert.ChangeType(parameter, parameterType);
-            }
-            else
+            try
             {
                 if (parameterType.IsInterface)
                     parameterType = this.serviceRegister.TryToNormalize(parameterType);
 
-                ret = JsonConvert.DeserializeObject(parameter, parameterType, this.settings);
+                return JsonConvert.DeserializeObject(parameter, parameterType, this.settings);
             }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message, ex);
+            }
+        }
 
-            return ret;
+        /// <summary>
+        /// Converts a parameter to a query string representation.
+        /// </summary>
+        /// <param name="parameter">The parameter to convert.</param>
+        /// <param name="parameterType">The <see cref="T:System.Type" /> of the parameter to convert.</param>
+        /// <returns>
+        /// The parameter name and value.
+        /// </returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public override string ConvertValueToString(object parameter, Type parameterType)
+        {
+            try
+            {
+                return JsonConvert.SerializeObject(parameter, Formatting.None, this.settings);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message, ex);
+            }
         }
 
     }
