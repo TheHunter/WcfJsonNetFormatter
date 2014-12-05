@@ -64,7 +64,7 @@ namespace WcfJsonFormatter.Ns
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException(ex.Message, ex);
+                throw new InvalidOperationException("Error when the serializer tried to deserialize the given parameter.", ex);
             }
         }
 
@@ -85,7 +85,7 @@ namespace WcfJsonFormatter.Ns
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException(ex.Message, ex);
+                throw new InvalidOperationException("Error when the serializer tried to serialize the given parameter.", ex);
             }
         }
 
