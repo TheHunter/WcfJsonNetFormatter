@@ -14,9 +14,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonService.AdmExample",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonService.PrgExample", "WcfJsonNetFormatter.PrgExample\WcfJsonService.PrgExample.csproj", "{E641265F-064E-4199-BBA7-1743F6C6F892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonNetFormatter", "WcfJsonNetFormatter\WcfJsonNetFormatter.csproj", "{27DC70D0-42F6-44B7-BD02-2F2F834CC713}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonNetFormatter.net40", "WcfJsonNetFormatter.net40\WcfJsonNetFormatter.net40.csproj", "{52258649-9997-4278-82B5-470CF2420B6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonFormatter", "..\WcfJsonFormatter\WcfJsonFormatter\WcfJsonFormatter.csproj", "{A488872B-9D9B-46A2-B0BE-DF14EB3AEB7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonFormatter.net40", "..\WcfJsonFormatter\WcfJsonFormatter.net40\WcfJsonFormatter.net40.csproj", "{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencies", "dependencies", "{D613ECFF-DD18-4E03-8F96-A1F55AF7CD66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{9532F39D-AA94-4589-8698-650D0DD1C74C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,16 +36,22 @@ Global
 		{E641265F-064E-4199-BBA7-1743F6C6F892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E641265F-064E-4199-BBA7-1743F6C6F892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E641265F-064E-4199-BBA7-1743F6C6F892}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27DC70D0-42F6-44B7-BD02-2F2F834CC713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27DC70D0-42F6-44B7-BD02-2F2F834CC713}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27DC70D0-42F6-44B7-BD02-2F2F834CC713}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27DC70D0-42F6-44B7-BD02-2F2F834CC713}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A488872B-9D9B-46A2-B0BE-DF14EB3AEB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A488872B-9D9B-46A2-B0BE-DF14EB3AEB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A488872B-9D9B-46A2-B0BE-DF14EB3AEB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A488872B-9D9B-46A2-B0BE-DF14EB3AEB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52258649-9997-4278-82B5-470CF2420B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52258649-9997-4278-82B5-470CF2420B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52258649-9997-4278-82B5-470CF2420B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52258649-9997-4278-82B5-470CF2420B6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EECC5A1A-B030-4BDE-BEEE-35E617C8E5EA} = {9532F39D-AA94-4589-8698-650D0DD1C74C}
+		{E641265F-064E-4199-BBA7-1743F6C6F892} = {9532F39D-AA94-4589-8698-650D0DD1C74C}
+		{52258649-9997-4278-82B5-470CF2420B6D} = {D613ECFF-DD18-4E03-8F96-A1F55AF7CD66}
+		{B8DFFBE3-36AA-4AA4-881D-0F2EBF53094D} = {D613ECFF-DD18-4E03-8F96-A1F55AF7CD66}
 	EndGlobalSection
 EndGlobal

@@ -24,6 +24,7 @@ namespace WcfJsonService.Example
             //host.Run();
 
             host.RunServiceWithWebRequest();
+            //host.RunServiceWithProxy();
         }
 
         private void Initialize()
@@ -113,18 +114,80 @@ namespace WcfJsonService.Example
             //Console.WriteLine(client.UploadString(baseAddress + "/InsertData", "{param1:{\"FirstName\":\"John\",\"LastName\":\"Doe\"}}"));
             
             client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData2?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"},str=\"string test\""));
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData3?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
 
             Console.WriteLine("new calling...");
             Console.WriteLine();
 
             client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData3?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"},str=\"string test\""));
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData4?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
+            Console.WriteLine();
+
+            client = new WebClient();
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData5?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=5"));
+            Console.WriteLine();
+
+            client = new WebClient();
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=1"));
+            Console.WriteLine();
+
+            client = new WebClient();
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"second\""));
             Console.WriteLine();
 
             Console.Write("Press ENTER to close the host");
             Console.ReadLine();
             host.Close();
+        }
+
+
+        public void RunServiceWithProxy()
+        {
+            WebHttpBinding webBinding = new WebHttpBinding
+            {
+                ContentTypeMapper = new RawContentMapper(),
+                MaxReceivedMessageSize = 4194304,
+                MaxBufferSize = 4194304
+            };
+
+            string baseAddress = "http://" + Environment.MachineName + ":8000/Service/jargs";
+            Uri uriBase = new Uri(baseAddress);
+
+            ServiceHost host = new ServiceHost(typeof(Service), uriBase);
+            host.AddServiceEndpoint(typeof(ITest), webBinding, uriBase)
+                            .Behaviors.Add(new WebHttpJsonNetBehavior());
+
+            host.Open();
+            Console.WriteLine("Host opened");
+
+            //////////////////////////////////////////////
+            WebHttpBinding webBinding2 = new WebHttpBinding
+            {
+                ContentTypeMapper = new RawContentMapper(),
+                MaxReceivedMessageSize = 4194304,
+                MaxBufferSize = 4194304,
+                SendTimeout = TimeSpan.FromMinutes(4)
+            };
+
+            EndpointAddress endpoint = new EndpointAddress(baseAddress);
+            
+            ServiceLocal client = new ServiceLocal(webBinding2, endpoint);
+            client.Endpoint.Behaviors.Add(new WebHttpJsonNetBehavior());
+
+            //ITest client = channelFactory.CreateChannel();
+            //var res = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, "my str");
+            //var res1 = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, null);
+            
+            var res2 = client.saveDataGet3(new InputData { FirstName = "myname2", LastName = "mylastname2" }, "saveDataGet3");
+            
+            // ok
+            var res3 = client.saveDataGet4(new InputData { FirstName = "myname4", LastName = "mylastname4" }, "saveDataGet4");
+
+            Console.WriteLine("######### risultato ########");
+            //Console.WriteLine(res);
+            //Console.WriteLine(res1);
+            Console.WriteLine(res3);
+            Console.ReadLine();
         }
     }
 }
