@@ -168,7 +168,7 @@ namespace WcfJsonFormatter.Ns
             byte[] toEncodeAsBytes
                   = System.Text.Encoding.ASCII.GetBytes(toEncode);
             string returnValue
-                  = System.Convert.ToBase64String(toEncodeAsBytes);
+                  = Convert.ToBase64String(toEncodeAsBytes);
             return returnValue;
         }
 
@@ -180,7 +180,7 @@ namespace WcfJsonFormatter.Ns
         public static string DecodeFrom64(this string encodedData)
         {
             byte[] encodedDataAsBytes
-                = System.Convert.FromBase64String(encodedData);
+                = Convert.FromBase64String(encodedData);
             string returnValue =
                System.Text.Encoding.ASCII.GetString(encodedDataAsBytes);
             return returnValue;
@@ -237,8 +237,6 @@ namespace WcfJsonFormatter.Ns
                 TypeNameAssemblyFormat = serializer.TypeNameAssemblyFormat,
                 TypeNameHandling = serializer.TypeNameHandling
             };
-
-
         }
     }
 }
