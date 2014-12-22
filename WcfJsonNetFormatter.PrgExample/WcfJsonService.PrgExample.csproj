@@ -83,8 +83,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WcfExtensions">
-      <HintPath>..\packages\WcfConfigExtensions.1.0.0.0\lib\net40\WcfExtensions.dll</HintPath>
+    <Reference Include="WcfExtensions, Version=1.1.1.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WcfConfigExtensions.1.1.1.10\lib\net40\WcfExtensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

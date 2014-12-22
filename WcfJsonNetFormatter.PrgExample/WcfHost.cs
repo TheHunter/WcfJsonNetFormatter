@@ -87,7 +87,6 @@ namespace WcfJsonService.Example
             }
         }
 
-
         public void RunServiceWithWebRequest()
         {
             WebHttpBinding webBinding = new WebHttpBinding
@@ -139,7 +138,6 @@ namespace WcfJsonService.Example
             Console.ReadLine();
             host.Close();
         }
-
 
         public void RunServiceWithProxy()
         {
