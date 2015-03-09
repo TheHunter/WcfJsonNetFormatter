@@ -9,7 +9,7 @@ using WcfJsonFormatter.Formatters;
 namespace WcfJsonFormatter.Ns
 {
     /// <summary>
-    /// 
+    /// Class DispatchJsonNetMessageFormatter.
     /// </summary>
     public class DispatchJsonNetMessageFormatter
         : DispatchJsonMessageFormatter
@@ -17,11 +17,11 @@ namespace WcfJsonFormatter.Ns
         private readonly JsonSerializer serializer;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="DispatchJsonNetMessageFormatter"/> class.
         /// </summary>
-        /// <param name="operation"></param>
-        /// <param name="serializer"></param>
-        /// <param name="serviceRegister"></param>
+        /// <param name="operation">The operation.</param>
+        /// <param name="serializer">The serializer.</param>
+        /// <param name="serviceRegister">The service register.</param>
         public DispatchJsonNetMessageFormatter(OperationDescription operation, JsonSerializer serializer, IServiceRegister serviceRegister)
             : base(operation, serviceRegister)
         {
@@ -29,10 +29,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Decodes the parameters.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="parameters"></param>
+        /// <param name="body">The body.</param>
+        /// <param name="parameters">The parameters.</param>
         public override void DecodeParameters(byte[] body, object[] parameters)
         {
             using (MemoryStream ms = new MemoryStream(body))
@@ -49,12 +49,12 @@ namespace WcfJsonFormatter.Ns
                             JProperty property = wrappedParameters.Property(parameter.Name);
                             if (property != null)
                             {
-                                Type type = this.ServiceRegister.GetTypeByName(JsonFormatterUtility.JTokenToDeserialize(property.Value), false)
+                                Type type = this.ServiceRegister.GetTypeByName(JsonFormatterUtility.GetTypeNameFromJObject(property.Value as JObject), false)
                                             ?? parameter.NormalizedType;
 
-                                // NOTA: se l'oggetto type non fosse nullo, viene sempre richiamato il binder
-                                // in presenza della proprietà $id ??
-
+                                /* $type overrides the given type parameter.
+                                 * only if $type is at the first property on the given token..
+                                */
                                 parameters[++indexParam] = property.Value.ToObject(type, serializer);
                             }
                         }
@@ -64,11 +64,11 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Encodes the reply.
         /// </summary>
-        /// <param name="parameters"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
+        /// <param name="parameters">The parameters.</param>
+        /// <param name="result">The result.</param>
+        /// <returns>System.Byte[].</returns>
         public override byte[] EncodeReply(object[] parameters, object result)
         {
             byte[] body;

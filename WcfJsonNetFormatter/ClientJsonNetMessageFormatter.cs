@@ -9,7 +9,7 @@ using WcfJsonFormatter.Formatters;
 namespace WcfJsonFormatter.Ns
 {
     /// <summary>
-    /// 
+    /// Class ClientJsonNetMessageFormatter.
     /// </summary>
     public class ClientJsonNetMessageFormatter
         : ClientJsonMessageFormatter
@@ -18,12 +18,12 @@ namespace WcfJsonFormatter.Ns
         private readonly JsonSerializer serializer;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ClientJsonNetMessageFormatter"/> class.
         /// </summary>
-        /// <param name="operation"></param>
-        /// <param name="endpoint"></param>
-        /// <param name="serializer"></param>
-        /// <param name="serviceRegister"></param>
+        /// <param name="operation">The operation.</param>
+        /// <param name="endpoint">The endpoint.</param>
+        /// <param name="serializer">The serializer.</param>
+        /// <param name="serviceRegister">The service register.</param>
         public ClientJsonNetMessageFormatter(OperationDescription operation, ServiceEndpoint endpoint, JsonSerializer serializer, IServiceRegister serviceRegister)
             : base(operation, endpoint, serviceRegister)
         {
@@ -36,10 +36,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Encodes the parameters.
         /// </summary>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>System.Byte[].</returns>
         public override byte[] EncodeParameters(object[] parameters)
         {
             byte[] body;
@@ -77,11 +77,11 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Decodes the reply.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <param name="body">The body.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>System.Object.</returns>
         public override object DecodeReply(byte[] body, object[] parameters)
         {
             using (MemoryStream ms = new MemoryStream(body))
@@ -91,7 +91,7 @@ namespace WcfJsonFormatter.Ns
                     using (JsonReader reader = new JsonTextReader(sr))
                     {
                         JToken token = serializer.Deserialize<JToken>(reader);
-                        Type type = this.ServiceRegister.GetTypeByName(JsonFormatterUtility.JTokenToDeserialize(token), false)
+                        Type type = this.ServiceRegister.GetTypeByName(JsonFormatterUtility.GetTypeNameFromJObject(token as JObject), false)
                                     ?? this.OperationResult.NormalizedType;
 
                         object ret = token.ToObject(type, serializer);

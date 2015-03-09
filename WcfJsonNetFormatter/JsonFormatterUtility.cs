@@ -6,14 +6,14 @@ using Newtonsoft.Json.Linq;
 namespace WcfJsonFormatter.Ns
 {
     /// <summary>
-    /// 
+    /// Class JsonFormatterUtility.
     /// </summary>
     public static class JsonFormatterUtility
     {
         /// <summary>
-        /// 
+        /// the token to serialize.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token.</param>
         internal static void JTokenToSerialize(JToken token)
         {
             switch (token.Type)
@@ -37,9 +37,9 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// the token to serialize.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token.</param>
         internal static void JTokenToSerialize(JProperty token)
         {
             if (token.Name == "$type")
@@ -57,9 +57,9 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// the token to serialize.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token.</param>
         internal static void JTokenToSerialize(JArray token)
         {
             foreach (var current in token)
@@ -69,9 +69,9 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// the token to serialize.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token.</param>
         internal static void JTokenToSerialize(JObject token)
         {
             if (token != null)
@@ -92,10 +92,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Normalizes the name of the type.
         /// </summary>
-        /// <param name="typeName"></param>
-        /// <returns></returns>
+        /// <param name="typeName">Name of the type.</param>
+        /// <returns>System.String.</returns>
         internal static string NormalizeTypeName(string typeName)
         {
             if (typeName == null)
@@ -111,21 +111,11 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Gets the type name from jobject.
         /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        internal static string JTokenToDeserialize(JToken token)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        internal static string JTokenToDeserialize(JObject token)
+        /// <param name="token">The token.</param>
+        /// <returns>System.String.</returns>
+        internal static string GetTypeNameFromJObject(JObject token)
         {
             if (token == null)
                 return null;
@@ -140,10 +130,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Determines whether [is jarray type] [the specified type].
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">The type.</param>
+        /// <returns><c>true</c> if [is j array type] [the specified type]; otherwise, <c>false</c>.</returns>
         internal static bool IsJArrayType(Type type)
         {
             if (type == null)
@@ -159,10 +149,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Encodes the given string in base64.
         /// </summary>
-        /// <param name="toEncode"></param>
-        /// <returns></returns>
+        /// <param name="toEncode">To encode.</param>
+        /// <returns>System.String.</returns>
         public static string EncodeTo64(this string toEncode)
         {
             byte[] toEncodeAsBytes
@@ -173,10 +163,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Decodes the string from base64.
         /// </summary>
-        /// <param name="encodedData"></param>
-        /// <returns></returns>
+        /// <param name="encodedData">The encoded data.</param>
+        /// <returns>System.String.</returns>
         public static string DecodeFrom64(this string encodedData)
         {
             byte[] encodedDataAsBytes
@@ -187,10 +177,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Determines whether [is base64 string] [the specified string].
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="str">The string.</param>
+        /// <returns><c>true</c> if [is base64 string] [the specified string]; otherwise, <c>false</c>.</returns>
         public static bool IsBase64String(this string str)
         {
             str = str.Trim();
@@ -198,10 +188,10 @@ namespace WcfJsonFormatter.Ns
         }
 
         /// <summary>
-        /// 
+        /// Makes the settings.
         /// </summary>
-        /// <param name="serializer"></param>
-        /// <returns></returns>
+        /// <param name="serializer">The serializer.</param>
+        /// <returns>JsonSerializerSettings.</returns>
         public static JsonSerializerSettings MakeSettings(this JsonSerializer serializer)
         {
             if (serializer == null)

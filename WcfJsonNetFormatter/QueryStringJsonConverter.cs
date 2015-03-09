@@ -8,20 +8,21 @@ using System.Text;
 namespace WcfJsonFormatter.Ns
 {
     /// <summary>
-    /// 
+    /// Class QueryStringJsonConverter.
     /// </summary>
     public class QueryStringJsonConverter
         : QueryStringConverter
     {
         private JsonSerializer serializer;
-        private JsonSerializerSettings settings;
-        private IServiceRegister serviceRegister;
+        private readonly JsonSerializerSettings settings;
+        private readonly IServiceRegister serviceRegister;
+
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="QueryStringJsonConverter"/> class.
         /// </summary>
-        /// <param name="serializer"></param>
-        /// <param name="serviceRegister"></param>
+        /// <param name="serializer">The serializer.</param>
+        /// <param name="serviceRegister">The service register.</param>
         public QueryStringJsonConverter(JsonSerializer serializer, IServiceRegister serviceRegister)
         {
             this.serializer = serializer;
@@ -33,9 +34,7 @@ namespace WcfJsonFormatter.Ns
         /// Determines whether the specified type can be converted to and from a string representation.
         /// </summary>
         /// <param name="type">The <see cref="T:System.Type" /> to convert.</param>
-        /// <returns>
-        /// A value that specifies whether the type can be converted.
-        /// </returns>
+        /// <returns>A value that specifies whether the type can be converted.</returns>
         public override bool CanConvert(Type type)
         {
             return true;
@@ -46,15 +45,10 @@ namespace WcfJsonFormatter.Ns
         /// </summary>
         /// <param name="parameter">The string form of the parameter and value.</param>
         /// <param name="parameterType">The <see cref="T:System.Type" /> to convert the parameter to.</param>
-        /// <returns>
-        /// The converted parameter.
-        /// </returns>
-        /// <exception cref="System.InvalidOperationException"></exception>
+        /// <returns>The converted parameter.</returns>
+        /// <exception cref="System.InvalidOperationException">Error when the serializer tried to deserialize the given parameter.</exception>
         public override object ConvertStringToValue(string parameter, Type parameterType)
         {
-            if (parameter == null)
-                return null;
-
             try
             {
                 if (parameterType.IsInterface)
@@ -73,10 +67,8 @@ namespace WcfJsonFormatter.Ns
         /// </summary>
         /// <param name="parameter">The parameter to convert.</param>
         /// <param name="parameterType">The <see cref="T:System.Type" /> of the parameter to convert.</param>
-        /// <returns>
-        /// The parameter name and value.
-        /// </returns>
-        /// <exception cref="System.InvalidOperationException"></exception>
+        /// <returns>The parameter name and value.</returns>
+        /// <exception cref="System.InvalidOperationException">Error when the serializer tried to serialize the given parameter.</exception>
         public override string ConvertValueToString(object parameter, Type parameterType)
         {
             try
