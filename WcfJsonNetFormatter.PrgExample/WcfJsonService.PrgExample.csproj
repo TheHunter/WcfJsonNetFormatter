@@ -76,6 +76,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
@@ -89,7 +90,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extra\NewHttpJsonNetBehavior.cs" />
+    <Compile Include="Extra\GlobalErrorHandler.cs" />
+    <Compile Include="Extra\WebFaultClientMessageInspector.cs" />
+    <Compile Include="Extra\WebHttpJsonNetBehavior2.cs" />
     <Compile Include="ISalesService.cs" />
+    <Compile Include="LocalService.cs" />
+    <Compile Include="Model\SalesmanDev.cs" />
     <Compile Include="SalesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestService.cs" />
@@ -113,6 +120,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="WcfServiceTypeSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\PersistentLayer.Domain.dll" />

@@ -11,6 +11,7 @@ using WcfJsonFormatter;
 using WcfJsonFormatter.Ns;
 using Newtonsoft.Json;
 using System.Net;
+using WcfJsonService.Example.Extra;
 
 namespace WcfJsonService.Example
 {
@@ -20,11 +21,12 @@ namespace WcfJsonService.Example
         {
             WcfHost host = new WcfHost();
             
-            //host.Initialize();
-            //host.Run();
+            host.Initialize();
+            host.Run();
 
-            host.RunServiceWithWebRequest();
+            //host.RunServiceWithWebRequest();
             //host.RunServiceWithProxy();
+            //host.RunServiceWithProxy2();
         }
 
         private void Initialize()
@@ -49,6 +51,8 @@ namespace WcfJsonService.Example
             Console.WriteLine();
 
             string baseAddress = "http://" + Environment.MachineName + ":8000/Service.svc";
+            Console.WriteLine("BaseAddress: {0}", baseAddress);
+
 
             using (ServiceHost serviceHost = new ServiceHost(typeof(SalesService), new Uri(baseAddress)))
             {
@@ -62,7 +66,7 @@ namespace WcfJsonService.Example
                 serviceHost.AddServiceEndpoint(typeof(ISalesService), webBinding, "json")
                     .Behaviors.Add(new WebHttpJsonNetBehavior());
 
-                serviceHost.AddServiceEndpoint(typeof(ISalesService), new BasicHttpBinding(), baseAddress);
+                //serviceHost.AddServiceEndpoint(typeof(ISalesService), new BasicHttpBinding(), baseAddress);
                 serviceHost.AddDependencyInjectionBehavior<ISalesService>(AutofacHostFactory.Container);
 
                 Console.WriteLine("Opening the host");
@@ -185,6 +189,56 @@ namespace WcfJsonService.Example
             //Console.WriteLine(res);
             //Console.WriteLine(res1);
             Console.WriteLine(res3);
+            Console.ReadLine();
+        }
+
+
+        public void RunServiceWithProxy2()
+        {
+            WebHttpBinding webBinding = new WebHttpBinding
+            {
+                ContentTypeMapper = new RawContentMapper(),
+                MaxReceivedMessageSize = 4194304,
+                MaxBufferSize = 4194304
+            };
+
+            string baseAddress = "http://" + Environment.MachineName + ":8000/Service/jargs";
+            Uri uriBase = new Uri(baseAddress);
+
+            ServiceHost host = new ServiceHost(typeof(LocalService), uriBase);
+            host.AddServiceEndpoint(typeof(ILocalService), webBinding, uriBase)
+                            .Behaviors.Add(new WebHttpJsonNetBehavior2());
+
+            host.Open();
+            Console.WriteLine("Host opened");
+
+            //////////////////////////////////////////////
+            WebHttpBinding webBinding2 = new WebHttpBinding
+            {
+                ContentTypeMapper = new RawContentMapper(),
+                MaxReceivedMessageSize = 4194304,
+                MaxBufferSize = 4194304,
+                SendTimeout = TimeSpan.FromMinutes(4)
+            };
+
+            EndpointAddress endpoint = new EndpointAddress(baseAddress);
+
+            ProxyService client = new ProxyService(webBinding2, endpoint);
+            //client.Endpoint.Behaviors.Add(new WebHttpJsonNetBehavior());
+            client.Endpoint.Behaviors.Add(new NewHttpJsonNetBehavior());
+            
+            //var res = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, "my str");
+            //var res1 = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, null);
+
+            var res1 = client.ReadInputData1(new InputData { FirstName = "myname2", LastName = "mylastname2" }, "ReadInputData1");
+
+            // ok
+            //var res2 = client.ReadInputData2(new InputData { FirstName = "myname4", LastName = "mylastname4" }, "ReadInputData2");
+
+            Console.WriteLine("######### risultato ########");
+            //Console.WriteLine(res);
+            Console.WriteLine(res1);
+            //Console.WriteLine(res2);
             Console.ReadLine();
         }
     }

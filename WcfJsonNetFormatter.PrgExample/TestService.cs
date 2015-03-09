@@ -118,7 +118,6 @@ namespace WcfJsonService.Example
     [ServiceContract]
     public interface ITestLocal
     {
-        
         [OperationContract(Name = "InsertData3")]
         //[WebGet(UriTemplate = "/InsertData3?param1={param1}&str={str}")]
         [WebGet]
