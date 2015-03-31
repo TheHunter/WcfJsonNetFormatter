@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WcfExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:WcfExtensions.ActionServiceBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfExtensions.IServiceActionProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.IServiceActionProvider.IncomingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.IServiceActionProvider.OutgoingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.ActionServiceBehavior.#ctor(System.Type,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+            <param name="incomingActionMethod"></param>
+            <param name="outgoingActionMethod"></param>
+        </member>
+        <member name="M:WcfExtensions.ActionServiceBehavior.#ctor(System.Action,System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="incomingAction"></param>
+            <param name="outgoingAction"></param>
+        </member>
+        <member name="M:WcfExtensions.ActionServiceBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+            <param name="endpoints"></param>
+            <param name="bindingParameters"></param>
+        </member>
+        <member name="M:WcfExtensions.ActionServiceBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="M:WcfExtensions.ActionServiceBehavior.Validate(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="P:WcfExtensions.ActionServiceBehavior.WcfExtensions#IServiceActionProvider#IncomingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.ActionServiceBehavior.WcfExtensions#IServiceActionProvider#OutgoingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfExtensions.ActionMessageInspector">
+            <summary>
+            An inspector for incoming / outgoing messages which uses actions when wcf operations are invoked.
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.ActionMessageInspector.#ctor(WcfExtensions.IServiceActionProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+        </member>
+        <member name="M:WcfExtensions.ActionMessageInspector.AfterReceiveRequest(System.ServiceModel.Channels.Message@,System.ServiceModel.IClientChannel,System.ServiceModel.InstanceContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="channel"></param>
+            <param name="instanceContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WcfExtensions.ActionMessageInspector.BeforeSendReply(System.ServiceModel.Channels.Message@,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="reply"></param>
+            <param name="correlationState"></param>
+        </member>
+        <member name="T:WcfExtensions.Configuration.ActionServiceBehaviorElement`1">
+            <summary>
+            A custom class for configuring service extension behaviors.
+            </summary>
+            <typeparam name="TBehavior"></typeparam>
+        </member>
+        <member name="T:WcfExtensions.Configuration.DefaultBehaviorExtensionElement`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TBehavior"></typeparam>
+        </member>
+        <member name="T:WcfExtensions.Configuration.IBehaviorExtensionElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.IBehaviorExtensionElement.BehaviorType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Configuration.DefaultBehaviorExtensionElement`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Configuration.DefaultBehaviorExtensionElement`1.CreateBehavior">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WcfExtensions.Configuration.DefaultBehaviorExtensionElement`1.BehaviorType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.PostDeserialize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.CreateBehavior">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.IncomingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.OutgoingAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.TypeProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.IncomingTargetAction">
+            <summary>
+            The method name which will be invoked after receiving the current wcf operation request.
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.OutgoingTargetAction">
+            <summary>
+            The method name which will be invoked before sending the current wcf operation reply.
+            </summary>
+        </member>
+        <member name="P:WcfExtensions.Configuration.ActionServiceBehaviorElement`1.ProviderType">
+            <summary>
+            The object type that contains methods for incoming / outgoing messages inspected by internal inspectors.
+            </summary>
+        </member>
+        <member name="T:WcfExtensions.Configuration.DynamicBehaviorExtensionElement`1">
+            <summary>
+            A dynamic behavior which is able to get specified properties retrieved on xml configuration.
+            </summary>
+            <typeparam name="TBehavior">The type of the behavior.</typeparam>
+        </member>
+        <member name="M:WcfExtensions.Configuration.DynamicBehaviorExtensionElement`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WcfExtensions.Configuration.DynamicBehaviorExtensionElement`1"/> class.
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Configuration.DynamicBehaviorExtensionElement`1.OnDeserializeUnrecognizedAttribute(System.String,System.String)">
+            <summary>
+            Gets a value indicating whether an unknown attribute is encountered during deserialization.
+            </summary>
+            <param name="name">The name of the unrecognized attribute.</param>
+            <param name="value">The value of the unrecognized attribute.</param>
+            <returns>
+            true when an unknown attribute is encountered while deserializing; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:WcfExtensions.Configuration.DynamicBehaviorExtensionElement`1.CreateBehavior">
+            <summary>
+            Creates the behavior.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WcfExtensions.Exceptions.ServiceArgumentException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfExtensions.Exceptions.WcfServiceException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.WcfServiceException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.WcfServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceArgumentException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceArgumentException.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceArgumentException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceArgumentException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="parameter"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:WcfExtensions.Exceptions.ServiceArgumentException.Parameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WcfExtensions.Exceptions.ServiceBehaviorException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceBehaviorException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:WcfExtensions.Exceptions.ServiceBehaviorException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+    </members>
+</doc>

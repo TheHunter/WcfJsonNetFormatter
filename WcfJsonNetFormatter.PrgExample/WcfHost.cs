@@ -22,9 +22,9 @@ namespace WcfJsonService.Example
             WcfHost host = new WcfHost();
             
             host.Initialize();
-            host.Run();
+            //host.Run();
 
-            //host.RunServiceWithWebRequest();
+            host.RunServiceWithWebRequest();
             //host.RunServiceWithProxy();
             //host.RunServiceWithProxy2();
         }
@@ -106,7 +106,7 @@ namespace WcfJsonService.Example
             ServiceHost host = new ServiceHost(typeof(Service), uriBase);
             host.AddServiceEndpoint(typeof(ITest), webBinding, uriBase)
                             .Behaviors.Add(new WebHttpJsonNetBehavior());
-            
+
             host.Open();
             Console.WriteLine("Host opened");
 

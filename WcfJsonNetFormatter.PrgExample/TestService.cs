@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace WcfJsonService.Example
 {
@@ -57,6 +60,10 @@ namespace WcfJsonService.Example
         [OperationContract(Name = "InsertData6")]
         [WebGet]
         InputData saveDataGet6(InputData param1, MyEnum str);
+
+        [OperationContract(Name = "InsertData5Async")]
+        [WebGet]
+        Task<InputData> saveDataGet5Async(InputData param1, int str);
     }
 
     public class Service : ITest
@@ -112,6 +119,15 @@ namespace WcfJsonService.Example
 
             return new InputData { FirstName = param1.FirstName + "__", LastName = param1.LastName + "__" };
         }
+
+        public async Task<InputData> saveDataGet5Async(InputData param1, int str)
+        {
+            return await Task.Factory.StartNew(() =>
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(10));
+                return new InputData { FirstName = param1.FirstName + "__", LastName = param1.LastName + "__" };
+            });
+        }
     }
 
 
@@ -160,5 +176,12 @@ namespace WcfJsonService.Example
         {
             return this.Channel.saveDataGet6(param1, str);
         }
+
+        //public async Task<InputData> saveDataGet4Async(InputData param1, string str)
+        //{
+        //    return await Task.Factory.StartNew( () => 
+        //        this.Channel.saveDataGet3(param1, str)
+        //        );
+        //}
     }
 }
