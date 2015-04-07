@@ -98,8 +98,5 @@ namespace WcfJsonFormatter.Ns
         /// </summary>
         /// <value>The serializer.</value>
         public JsonSerializer Serializer { get; private set; }
-        
-
-        
     }
 }

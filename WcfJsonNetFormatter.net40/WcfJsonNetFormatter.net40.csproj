@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WcfJsonFormatter, Version=1.2.2.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WcfJsonFormatter.1.2.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
+      <HintPath>..\packages\WcfJsonFormatter.1.3.2.10\lib\net40\WcfJsonFormatter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -24,8 +24,8 @@ namespace WcfJsonService.Example
             host.Initialize();
             //host.Run();
 
-            host.RunServiceWithWebRequest();
-            //host.RunServiceWithProxy();
+            //host.RunServiceWithWebRequest();
+            host.RunServiceWithProxy();
             //host.RunServiceWithProxy2();
         }
 

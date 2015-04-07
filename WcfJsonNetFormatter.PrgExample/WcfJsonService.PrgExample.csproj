@@ -122,21 +122,18 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="WcfServiceTypeSchema.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\PersistentLayer.Domain.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WcfJsonFormatter\WcfJsonFormatter.net40\WcfJsonFormatter.net40.csproj">
-      <Project>{b8dffbe3-36aa-4aa4-881d-0f2ebf53094d}</Project>
-      <Name>WcfJsonFormatter.net40</Name>
+    <ProjectReference Include="..\..\WcfJsonFormatter\WcfJsonFormatter.net45\WcfJsonFormatter.net45.csproj">
+      <Project>{5e101230-2d99-4a19-9302-89abe1fd0243}</Project>
+      <Name>WcfJsonFormatter.net45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WcfJsonNetFormatter.net40\WcfJsonNetFormatter.net40.csproj">
-      <Project>{52258649-9997-4278-82b5-470cf2420b6d}</Project>
-      <Name>WcfJsonNetFormatter.net40</Name>
+    <ProjectReference Include="..\WcfJsonNetFormatter.net45\WcfJsonNetFormatter.net45.csproj">
+      <Project>{8016bc5a-fff3-42d2-9151-ad6f2d56e39a}</Project>
+      <Name>WcfJsonNetFormatter.net45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
