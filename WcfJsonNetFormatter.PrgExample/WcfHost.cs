@@ -24,8 +24,8 @@ namespace WcfJsonService.Example
             host.Initialize();
             //host.Run();
 
-            //host.RunServiceWithWebRequest();
-            host.RunServiceWithProxy();
+            host.RunServiceWithWebRequest();
+            //host.RunServiceWithProxy();
             //host.RunServiceWithProxy2();
         }
 
@@ -116,26 +116,30 @@ namespace WcfJsonService.Example
             //client.Headers[HttpRequestHeader.ContentType] = "application/json";
             //Console.WriteLine(client.UploadString(baseAddress + "/InsertData", "{param1:{\"FirstName\":\"John\",\"LastName\":\"Doe\"}}"));
             
-            client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData3?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
+            //client = new WebClient();
+            //Console.WriteLine(client.DownloadString(baseAddress + "/InsertData3?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
 
-            Console.WriteLine("new calling...");
-            Console.WriteLine();
+            //Console.WriteLine("new calling...");
+            //Console.WriteLine();
 
-            client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData4?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
-            Console.WriteLine();
+            //client = new WebClient();
+            //Console.WriteLine(client.DownloadString(baseAddress + "/InsertData4?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"string test\""));
+            //Console.WriteLine();
 
-            client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData5?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=5"));
-            Console.WriteLine();
+            //client = new WebClient();
+            //Console.WriteLine(client.DownloadString(baseAddress + "/InsertData5?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=5"));
+            //Console.WriteLine();
 
-            client = new WebClient();
-            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=1"));
-            Console.WriteLine();
+            //client = new WebClient();
+            //Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=1"));
+            //Console.WriteLine();
 
             client = new WebClient();
             Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=\"second\""));
+            Console.WriteLine();
+
+            client = new WebClient();
+            Console.WriteLine(client.DownloadString(baseAddress + "/InsertData6?param1={\"FirstName\":\"John\",\"LastName\":\"Doe\"}&str=2"));
             Console.WriteLine();
 
             Console.Write("Press ENTER to close the host");
@@ -175,20 +179,18 @@ namespace WcfJsonService.Example
             
             ServiceLocal client = new ServiceLocal(webBinding2, endpoint);
             client.Endpoint.Behaviors.Add(new WebHttpJsonNetBehavior());
-
-            //ITest client = channelFactory.CreateChannel();
-            //var res = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, "my str");
-            //var res1 = client.saveDataGet3(new InputData { FirstName = "myname", LastName = "mylastname" }, null);
             
             var res2 = client.saveDataGet3(new InputData { FirstName = "myname2", LastName = "mylastname2" }, "saveDataGet3");
-            
             // ok
             var res3 = client.saveDataGet4(new InputData { FirstName = "myname4", LastName = "mylastname4" }, "saveDataGet4");
+            //
+            var res4 = client.saveDataGet6(new InputData {FirstName = "fr", LastName = "lst"}, MyEnum.second);
 
             Console.WriteLine("######### risultato ########");
             //Console.WriteLine(res);
-            //Console.WriteLine(res1);
+            Console.WriteLine(res2);
             Console.WriteLine(res3);
+            Console.WriteLine(res4);
             Console.ReadLine();
         }
 

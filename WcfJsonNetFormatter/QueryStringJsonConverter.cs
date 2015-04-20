@@ -51,11 +51,19 @@ namespace WcfJsonFormatter.Ns
         {
             try
             {
+                if (parameter == null)
+                {
+                    if (parameterType.IsClass || parameterType.IsInterface || parameterType.Name.Equals("Nullable`1", StringComparison.InvariantCultureIgnoreCase))
+                        parameter = "null";
+                    else
+                        parameter = Activator.CreateInstance(parameterType).ToString();
+                }
+
                 if (parameterType.IsInterface)
                     parameterType = this.serviceRegister.TryToNormalize(parameterType);
 
                 return JsonConvert.DeserializeObject(parameter, parameterType, this.settings);
-            }
+            } 
             catch (Exception ex)
             {
                 throw new InvalidOperationException("Error when the serializer tried to deserialize the given parameter.", ex);
