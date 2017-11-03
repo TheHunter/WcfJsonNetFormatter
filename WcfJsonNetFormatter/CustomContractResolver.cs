@@ -19,15 +19,24 @@ namespace WcfJsonFormatter.Ns
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomContractResolver"/> class.
         /// </summary>
-        /// <param name="shareCache">if set to <c>true</c> [share cache].</param>
         /// <param name="includeFields">if set to <c>true</c> [include fields].</param>
         /// <param name="normalizer">The normalizer.</param>
-        public CustomContractResolver(bool shareCache, bool includeFields, Func<Type, Type> normalizer)
-            : base(shareCache)
+        public CustomContractResolver(bool includeFields, Func<Type, Type> normalizer)
         {
             this.includeFields = includeFields;
             this.normalizer = normalizer;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomContractResolver"/> class.
+        /// </summary>
+        /// <param name="shareCache">Deprecated, will have no effect. Cache instances within you application</param>
+        /// <param name="includeFields">if set to <c>true</c> [include fields].</param>
+        /// <param name="normalizer">The normalizer.</param>
+        [Obsolete("Use constructor without shareCache parameter")]
+        public CustomContractResolver(bool shareCache, bool includeFields, Func<Type, Type> normalizer)
+            : this(includeFields, normalizer)
+        { }
 
         /// <summary>
         /// Gets the property members.
