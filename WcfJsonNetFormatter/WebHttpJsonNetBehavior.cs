@@ -11,6 +11,8 @@ using System.ServiceModel.Dispatcher;
 
 namespace WcfJsonFormatter.Ns
 {
+    using Newtonsoft.Json.Serialization;
+
     /// <summary>
     /// Class WebHttpJsonNetBehavior.
     /// </summary>
@@ -38,7 +40,8 @@ namespace WcfJsonFormatter.Ns
 
             CustomContractResolver resolver = new CustomContractResolver(false, this.ConfigRegister.TryToNormalize)
             {
-                DefaultMembersSearchFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
+                /* ovverides List<MemberInfo> GetSerializableMembers(Type objectType) if It's needed */
+                ////DefaultMembersSearchFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
             };
 
             this.Serializer = new JsonSerializer
@@ -54,7 +57,8 @@ namespace WcfJsonFormatter.Ns
 
             if (serializerInfo.EnablePolymorphicMembers)
             {
-                Serializer.Binder = new OperationTypeBinder(this.ConfigRegister);
+                ////Serializer.Binder = new OperationTypeBinder(this.ConfigRegister);
+                Serializer.SerializationBinder = new OperationTypeBinderDecorator(this.ConfigRegister);
                 Serializer.TypeNameHandling = TypeNameHandling.Objects;
             }
         }

@@ -199,7 +199,7 @@ namespace WcfJsonFormatter.Ns
 
             return new JsonSerializerSettings
             {
-                Binder = serializer.Binder,
+                SerializationBinder = serializer.SerializationBinder,
                 CheckAdditionalContent = serializer.CheckAdditionalContent,
                 ConstructorHandling = serializer.ConstructorHandling,
                 Context = serializer.Context,
@@ -221,10 +221,10 @@ namespace WcfJsonFormatter.Ns
                 ObjectCreationHandling = serializer.ObjectCreationHandling,
                 PreserveReferencesHandling = serializer.PreserveReferencesHandling,
                 ReferenceLoopHandling = serializer.ReferenceLoopHandling,
-                ReferenceResolver = serializer.ReferenceResolver,
+                ReferenceResolverProvider = () => serializer.ReferenceResolver,
                 StringEscapeHandling = serializer.StringEscapeHandling,
                 TraceWriter = serializer.TraceWriter,
-                TypeNameAssemblyFormat = serializer.TypeNameAssemblyFormat,
+                TypeNameAssemblyFormatHandling = serializer.TypeNameAssemblyFormatHandling,
                 TypeNameHandling = serializer.TypeNameHandling
             };
         }

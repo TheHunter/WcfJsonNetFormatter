@@ -61,6 +61,6 @@ namespace WcfJsonFormatter.Ns
             }
 
             return properties;
-        }
+        }        
     }
 }
