@@ -36,7 +36,7 @@ namespace WcfJsonFormatter.Ns
             
             SerializerSettings serializerInfo = this.ConfigRegister.SerializerConfig;
 
-            CustomContractResolver resolver = new CustomContractResolver(true, false, this.ConfigRegister.TryToNormalize)
+            CustomContractResolver resolver = new CustomContractResolver(false, this.ConfigRegister.TryToNormalize)
             {
                 DefaultMembersSearchFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
             };
