@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("WcfJsonNetFormatter")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("The hunter company")]
 [assembly: AssemblyProduct("WcfJsonNetFormatter")]
 [assembly: AssemblyCopyright("Licensed under LGPL")]
 [assembly: AssemblyTrademark("")]
